@@ -1,0 +1,133 @@
+                                          CODE FOR WEATHER APPLICATION
+
+In MainActivity.java
+
+public class MainActivity extends AppCompactActivity {
+
+  EditText cityField;
+  TextView resultWeather;
+  String cityToFind;
+
+
+  @Override
+  Protected void onCreate(Bundle savedInstanceState) {
+     Super.onCreate(savedInstanceState);
+     setContentView(R.layout.activity_main);
+     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+     setSupportActionBar(toolbar);
+
+    cityField= (EditText) findViewById(R.id.editText);
+    resultWeather= (TextView) findViewById(R.id.textView);
+
+
+
+     FloatingActionButton fab=( FloatingActionButton) findViewById(R.id.fab);
+     fab.setOnClickListener(new View.OnClickListener() {
+@Override
+Public void onClickListener() {
+       Snackbar.make(view,”Replace with your own action”, Snackbar.LENGTH_LONG)
+           .setAction(“Action”,null).show();
+
+FindWeather(view);
+
+}
+});
+}
+
+Public void FindWeather(View v){
+ cityToFind = cityField.getText().toString();
+
+try{
+
+ExecuteTask tasky = new ExecuteTask();
+Tasky.execute(http://api.openweathermap.org/data/2.5/weather?q=+cityToFind+ “&APPID=157b80432b020e631c8570dde1205005”);
+}catch (Exception e){
+e.printStackTrace();
+}
+
+}
+
+public class ExecuteTask extends AsyncTask<String, Void, String> {
+@Override
+protected String doInBackground(String… strings) {
+
+@Override
+Protected void onPostExecute(String s){
+Super. onPostExecute(s);
+
+Try{
+String message = “”;
+
+JSONObject jsonObject = new JSONObject (s);
+String infoWeatherToday = jsonObject.getString(“weather”);
+JSONArray array = new JSONArray(infoWeatherToday);
+
+for(int i=0; I <array.length() ;i==){
+JSONObject jsonsecondary = array.getJSONObject(i);
+
+String main = “”;
+String description =””;
+
+Main = jsonSecondary = array.getString(“main”);
+Description = jsonSecondary.getString(“description”);
+
+If(main != “” && description !=””){
+
+message += main + “\n ” + description + “\r\n”;
+
+}
+
+}
+If (message != “”){
+resultWeather.setText(message);
+}
+Else{
+Toast.makeText(MainActivity.this,”An Error Occurred”, Toast.LENGTH_SHORT).show();
+}
+}catch (JSONException e){
+   e.printStackTrace();
+}
+}
+String result = “”;
+URL url;
+HttpURLConnection urlConnection = null;
+
+Try{
+
+url = new URL(strings[0]);
+
+urlConnection = (HttpURLConnection) url.openConnection();
+InputStream is = urlConnection.get InputStream();
+InputStreamReader reader = new InputStreamReader(is);
+int data = reader.read();
+ while (data != -1) {
+char current =(char) data;
+result += current;
+data = reader.read();
+}
+return result;
+
+}catch (MalformedURLException e) {
+e.printStackTrace();
+}catch(IOException e) {
+e.printStackTrace();
+}
+return null;
+}
+}
+
+@Override
+Public boolean onCreateOptionsMenu(Menu menu) {
+  getMenuInflator().inflate(R.menu.menu_main, menu);
+  return home;
+}
+
+@Override
+Public Boolean onOptionsItemSelected(MenuItem item) {
+  Int id = item.getItemId(); 
+
+
+
+AndroidManifest.xml
+
+<uses-permission androidname=”android.permission.INTERNET”/>
