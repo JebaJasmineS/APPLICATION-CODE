@@ -1,0 +1,377 @@
+                                                   CODING FOR CALCULATOR APPLICATION
+In activity-main.xml
+<Relative Layout xmlns:android=http://scheme.android.com/apk/res/android
+android:layout_width=”match_parent”
+android:layout_height=”match_parent”
+android:paddingLeft=”16dp”
+android:paddingRight=”16dp”
+
+<Button
+android:id=”@+id/btn9”
+android:layout_width=”wrap_content”
+android:layout_height=”wrap_content”
+android:text=”9”
+android:textsize=”20dp”
+android:layout_marginTop=”280dp”/>
+
+<Button
+android:id=”@+id/btn8”
+android:layout_width=”wrap_content”
+android:layout_height=”wrap_content”
+android:text=”8”
+android:textsize=”20dp”
+android:layout_marginTop=”280dp”/>
+
+<Button
+android:id=”@+id/btn7”
+android:layout_width=”wrap_content”
+android:layout_height=”wrap_content”
+android:text=”7”
+android:textsize=”20dp”
+android:layout_marginTop=”280dp”/>
+
+<Button
+android:id=”@+id/btn6”
+android:layout_width=”wrap_content”
+android:layout_height=”wrap_content”
+android:text=”6”
+android:textsize=”20dp”
+android:layout_marginTop=”280dp”/>
+
+<Button
+android:id=”@+id/btn5”
+android:layout_width=”wrap_content”
+android:layout_height=”wrap_content”
+android:text=”5”
+android:textsize=”20dp”
+android:layout_marginTop=”280dp”/>
+
+<Button
+android:id=”@+id/btn4”
+android:layout_width=”wrap_content”
+android:layout_height=”wrap_content”
+android:text=”4”
+android:textsize=”20dp”
+android:layout_marginTop=”280dp”/>
+
+<Button
+android:id=”@+id/btn3”
+android:layout_width=”wrap_content”
+android:layout_height=”wrap_content”
+android:text=”3”
+android:textsize=”20dp”
+android:layout_marginTop=”280dp”/>
+
+
+<Button
+android:id=”@+id/btn2”
+android:layout_width=”wrap_content”
+android:layout_height=”wrap_content”
+android:text=”2”
+android:textsize=”20dp”
+android:layout_marginTop=”280dp”/>
+
+<Button
+android:id=”@+id/btn1”
+android:layout_width=”wrap_content”
+android:layout_height=”wrap_content”
+android:text=”1”
+android:textsize=”20dp”
+android:layout_marginTop=”280dp”/>
+
+<Button
+android:id=”@+id/btn0”
+android:layout_width=”wrap_content”
+android:layout_height=”wrap_content”
+android:text=”0”
+android:textsize=”20dp”
+android:layout_marginTop=”280dp”/>
+
+<Button
+android:id=”@+id/btn+”
+android:layout_width=”wrap_content”
+android:layout_height=”wrap_content”
+android:text=”+”
+android:textsize=”20dp”
+android:layout_marginTop=”280dp”/>
+
+<Button
+android:id=”@+id/btn-”
+android:layout_width=”wrap_content”
+android:layout_height=”wrap_content”
+android:text=”-”
+android:textsize=”20dp”
+android:layout_marginTop=”280dp”/>
+
+<Button
+android:id=”@+id/btn*”
+android:layout_width=”wrap_content”
+android:layout_height=”wrap_content”
+android:text=”*”
+android:textsize=”20dp”
+android:layout_marginTop=”280dp”/>
+
+<Button
+android:id=”@+id/btn/”
+android:layout_width=”wrap_content”
+android:layout_height=”wrap_content”
+android:text=”/”
+android:textsize=”20dp”
+android:layout_marginTop=”280dp”/>
+
+<Button
+android:id=”@+id/btnclear”
+android:layout_width=”wrap_content”
+android:layout_height=”wrap_content”
+android:text=”clear”
+android:textsize=”20dp”
+android:layout_marginTop=”280dp”/>
+
+
+
+<Button
+android:id=”@+id/btnequal”
+android:layout_width=”wrap_content”
+android:layout_height=”wrap_content”
+android:text=”=”
+android:textsize=”20dp”
+android:layout_marginTop=”280dp”/>
+
+<Textview
+android:id=”@+id/tvControl”
+android:layout_width=”wrap_content”
+android:layout_height=”wrap_content”
+android:layout_marginLeft=”300dp”
+android:layout_marginTop=”200dp”
+android:textsize=”20dp”/>
+
+<Textview
+android:id=”@+id/tvResult”
+android:layout_width=”wrap_content”
+android:layout_height=”wrap_content”
+android:layout_marginLeft=”300dp”
+android:layout_marginTop=”200dp”
+android:textsize=”20dp”/>
+
+</Relative Layout>
+
+
+In MainActivity 
+
+private Button zero;
+private Button one;
+private Button two;
+private Button three;
+private Button four;
+private Button five;
+private Button six;
+private Button seven;
+private Button eight;
+private Button nine;
+private Button add;
+private Button sub;
+private Button mul;
+private Button div;
+private Button equal;
+private Button clear;
+private Textview info:
+private Textview result;
+private final char ADDITION=’+’;
+private final char SUBTRACTION=’-’;
+private final char MULTIPLICATION=’*’;
+private final char DIVISION=’/’;
+private final char EQU=’=’;
+private double val1=Double.NaN;
+private double val2;
+private char ACTION;
+
+@Override
+setUpUIViews();
+Zero.setOnClickListener(new View.OnClickListener(){
+@Override
+Public void onClick(View V){
+info.setText(info.getText().toString()+”0”);
+}
+
+One.setOnClickListener(new View.OnClickListener(){
+@Override
+Public void onClick(View V){
+info.setText(info.getText().toString()+”1”);
+}
+
+Two.setOnClickListener(new View.OnClickListener(){
+@Override
+Public void onClick(View V){
+info.setText(info.getText().toString()+”2”);
+}
+
+Three.setOnClickListener(new View.OnClickListener(){
+@Override
+Public void onClick(View V){
+info.setText(info.getText().toString()+”3”);
+}
+
+Four.setOnClickListener(new View.OnClickListener(){
+@Override
+Public void onClick(View V){
+info.setText(info.getText().toString()+”4”);
+}
+
+Five.setOnClickListener(new View.OnClickListener(){
+@Override
+Public void onClick(View V){
+info.setText(info.getText().toString()+”5”);
+}
+
+Six.setOnClickListener(new View.OnClickListener(){
+@Override
+Public void onClick(View V){
+info.setText(info.getText().toString()+”6”);
+}
+
+Seven.setOnClickListener(new View.OnClickListener(){
+@Override
+Public void onClick(View V){
+info.setText(info.getText().toString()+”7”);
+}
+
+Eight.setOnClickListener(new View.OnClickListener(){
+@Override
+Public void onClick(View V){
+info.setText(info.getText().toString()+”8”);
+}
+
+Nine.setOnClickListener(new View.OnClickListener(){
+@Override
+Public void onClick(View V){
+info.setText(info.getText().toString()+”9”);
+}
+};
+
+add.setOnCickListener(new View.OnClickListener(){
+@Override
+Public void onClick(View v){
+compute();
+ACTION=ADDITION;
+Result.setText(String.valueOf(val1)+”+”);
+Info.setText(null);
+}
+});
+
+sub.setOnCickListener(new View.OnClickListener(){
+@Override
+Public void onClick(View v){
+compute();
+ACTION=SUBTRACTION;
+Result.setText(String.valueOf(val1)-”-”);
+Info.setText(null);
+}
+});
+
+
+mul.setOnCickListener(new View.OnClickListener(){
+@Override
+Public void onClick(View v){
+compute();
+ACTION=MULTIPLICATION;
+Result.setText(String.valueOf(val1)*”*”);
+Info.setText(null);
+}
+});
+
+div.setOnCickListener(new View.OnClickListener(){
+@Override
+Public void onClick(View v){
+compute();
+ACTION=DIVISION;
+Result.setText(String.valueOf(val1)/”/”);
+Info.setText(null);
+}
+});
+
+equal.set OnClickListener(new View.OnClickListener(){
+@Override
+Public void onClick(View v){
+compute();
+ACTION=EQU;
+Result.setText(result.getText().toString()+String.valueOf(val2)+”=”+Sring.valueOf(val1);
+Info.setText(null);
+});
+
+Clear.setOn
+if(info.getText().length()>0){
+charSequence name=info.getText().toString();
+info.setText(name.subSequence(0,name,length()-1));
+}
+else{
+Val1=Double.NaN;
+Val2=Double.NaN;
+info.setText(null);
+result.setText(null);
+}
+});
+}
+
+Private void setUpUIViews(){
+one=(Button)findViewById(R.id.btn1);
+two=(Button)findViewById(R.id.btn1);
+three=(Button)findViewById(R.id.btn1);
+four=(Button)findViewById(R.id.btn1);
+five=(Button)findViewById(R.id.btn1);
+six=(Button)findViewById(R.id.btn1);
+seven=(Button)findViewById(R.id.btn1);
+eight=(Button)findViewById(R.id.btn1);
+nine=(Button)findViewById(R.id.btn1);
+}
+Privatevoid compute(){
+If(!Double.isNaN(val1)){
+Val2=Double.parseDouble(info.getText().toString());
+
+Switch(ACTION){
+  case ADDITION:
+  val1=val1+val2;
+  break;
+
+  case SUBTRACTION:
+  val1=val1-val2;
+  break;
+
+  case MULTIPLICATION:
+  val1=val1*val2;
+  break;
+
+  case DIVISION:
+  val1=val1/val2;
+  break;
+
+   case EQU:
+   break;
+
+}
+}
+Else{
+Val1+Double.parseDouble(info.getText().toString());
+}
+}
+}
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
